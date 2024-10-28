@@ -45,7 +45,7 @@ function displayTeam() {
     const memberCard = `
       <div class="card col-4 bg-black text-white">
         <div class="row">
-          <div class="col-md-4 d-flex">
+          <div class="col-md-4">
             <img src="${member.img}" class="img-fluid rounded-start" alt="${member.name}">
           </div>
           <div class="col-md-8">
@@ -61,5 +61,21 @@ function displayTeam() {
     teamContainer.insertAdjacentHTML("beforeend", memberCard);
   });
 }
+
+document.getElementById("addMemberForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  
+  const newMember = {
+    name: document.getElementById("name").value,
+    role: document.getElementById("role").value,
+    email: document.getElementById("email").value,
+    img: document.getElementById("img").value
+  };
+  
+  teamMembers.push(newMember);
+  displayTeam();
+  
+  this.reset();
+});
 
 displayTeam()
