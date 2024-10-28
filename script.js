@@ -37,3 +37,29 @@ const teamMembers = [
   }
 ];
 
+function displayTeam() {
+  const teamContainer = document.getElementById("teamContainer");
+  teamContainer.innerHTML = "";
+  
+  teamMembers.forEach(member => {
+    const memberCard = `
+      <div class="card col-4 bg-black text-white">
+        <div class="row">
+          <div class="col-md-4 d-flex">
+            <img src="${member.img}" class="img-fluid rounded-start" alt="${member.name}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title team__name">${member.name}</h5>
+              <p class="card-text">${member.role}</p>
+              <p class="card-text text-info">${member.email}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+    teamContainer.insertAdjacentHTML("beforeend", memberCard);
+  });
+}
+
+displayTeam()
