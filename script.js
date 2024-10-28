@@ -43,7 +43,8 @@ function displayTeam() {
   
   teamMembers.forEach(member => {
     const memberCard = `
-      <div class="card col-4 bg-black text-white">
+    <div class="col-4">
+      <div class="card bg-black text-white">
         <div class="row">
           <div class="col-md-4">
             <img src="${member.img}" class="img-fluid rounded-start" alt="${member.name}">
@@ -57,6 +58,7 @@ function displayTeam() {
           </div>
         </div>
       </div>
+    </div>
     `
     teamContainer.insertAdjacentHTML("beforeend", memberCard);
   });
